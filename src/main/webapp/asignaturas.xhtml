@@ -44,7 +44,29 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                                  style="margin-left: .5em"/>
             </f:facet>
         </p:card>
+        <p:card>
+            <h:form>
+                <p:dataTable var="a" value="#{asignaturaBean.lista}">
 
+                    <p:column headerText="Código">
+                        <h:outputText value="#{a.codigo}" />
+                    </p:column>
+
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{a.nombre}" />
+                    </p:column>
+
+                    <p:column headerText="Créditos">
+                        <h:outputText value="#{a.creditos}" />
+                    </p:column>
+
+                    <p:column headerText="Intensidad">
+                        <h:outputText value="#{a.intensidad}" />
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+        </p:card>
     </h:body>
 
 </html>
