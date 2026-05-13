@@ -22,21 +22,21 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
                 <p:outputLabel>Codigo :</p:outputLabel>
                 <p:inputText id="txfCodigo" value="#{control.asignatura.codigo}"></p:inputText>
                 <p:message for="txfCodigo"></p:message>
-                
+
                 <p:outputLabel>Nombre :</p:outputLabel>
                 <p:inputText id="txfNombre" value="#{control.asignatura.nombre}"></p:inputText>
                 <p:message for="txfNombre"></p:message>
-                
+
                 <p:outputLabel>Creditos :</p:outputLabel>
                 <p:inputNumber id="txfCreditos" value="#{control.asignatura.creditos}"></p:inputNumber>
                 <p:message for="txfCreditos"></p:message>
-                
+
                 <p:outputLabel>Intensidad :</p:outputLabel>
                 <p:inputNumber id="txfIntensidad" value="#{control.asignatura.intensidad}"></p:inputNumber>
                 <p:message for="txfIntensidad"></p:message>
-                
+
             </h:panelGrid>
-            
+
             <f:facet name="footer">
                 <p:commandButton icon="pi pi-check" value="Save"/>
                 <p:commandButton icon="pi pi-times" value="Cancel"
