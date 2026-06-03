@@ -15,58 +15,51 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit t
     </h:head>
 
     <h:body>
+        <h:form id="formulario">
+            <p:card style="width: 35rem; margin-bottom: 2em">
+                <f:facet name="title">Gestionar asignaturas</f:facet>
 
-        <p:card>
-            <f:facet name="title">Gestionar asignaturas</f:facet>
-            <h:panelGrid columns ="3">
-                <p:outputLabel>Codigo :</p:outputLabel>
-                <p:inputText id="txfCodigo" value="#{control.asignatura.codigo}"></p:inputText>
-                <p:message for="txfCodigo"></p:message>
+                <h:panelGrid columns ="3">
+                    <p:outputLabel>Codigo :</p:outputLabel>
+                    <p:inputText id="txfCodigo" value="#{control.asignatura.codigo}"></p:inputText>
+                    <p:message for="txfCodigo"></p:message>
 
-                <p:outputLabel>Nombre :</p:outputLabel>
-                <p:inputText id="txfNombre" value="#{control.asignatura.nombre}"></p:inputText>
-                <p:message for="txfNombre"></p:message>
+                    <p:outputLabel>Nombre :</p:outputLabel>
+                    <p:inputText id="txfNombre" value="#{control.asignatura.nombre}"></p:inputText>
+                    <p:message for="txfNombre"></p:message>
 
-                <p:outputLabel>Creditos :</p:outputLabel>
-                <p:inputNumber id="txfCreditos" value="#{control.asignatura.creditos}"></p:inputNumber>
-                <p:message for="txfCreditos"></p:message>
+                    <p:outputLabel>Creditos :</p:outputLabel>
+                    <p:inputNumber id="txfCreditos" value="#{control.asignatura.creditos}"></p:inputNumber>
+                    <p:message for="txfCreditos"></p:message>
 
-                <p:outputLabel>Intensidad :</p:outputLabel>
-                <p:inputNumber id="txfIntensidad" value="#{control.asignatura.intensidad}"></p:inputNumber>
-                <p:message for="txfIntensidad"></p:message>
+                    <p:outputLabel>Intensidad :</p:outputLabel>
+                    <p:inputNumber id="txfIntensidad" value="#{control.asignatura.intensidad}"></p:inputNumber>
+                    <p:message for="txfIntensidad"></p:message>
+                </h:panelGrid>
 
-            </h:panelGrid>
 
-            <f:facet name="footer">
-                <p:commandButton icon="pi pi-check" value="Save"/>
-                <p:commandButton icon="pi pi-times" value="Cancel"
-                                 styleClass="ui-button-secondary"
-                                 style="margin-left: .5em"/>
-            </f:facet>
-        </p:card>
-        <p:card>
-            <h:form>
-                <p:dataTable var="a" value="#{asignaturaBean.lista}">
+                <p:messages id="mensajes" globalOnly="true" closable="true"/>
 
-                    <p:column headerText="Código">
-                        <h:outputText value="#{a.codigo}" />
-                    </p:column>
-
-                    <p:column headerText="Nombre">
-                        <h:outputText value="#{a.nombre}" />
-                    </p:column>
-
-                    <p:column headerText="Créditos">
-                        <h:outputText value="#{a.creditos}" />
-                    </p:column>
-
-                    <p:column headerText="Intensidad">
-                        <h:outputText value="#{a.intensidad}" />
-                    </p:column>
-
+                <f:facet name="footer">
+                    <p:commandButton icon="pi pi-check" value="Save"
+                                     action="#{control.guardar()}"
+                                     process="@this txfCodigo txfNombre txfCreditos txfIntensidad"
+                                     update="mensajes txfCodigo txfNombre txfCreditos txfIntensidad tabla"/>
+                    <p:commandButton icon="pi pi-times" value="Cancel"
+                                     styleClass="ui-button-secondary"
+                                     style="margin-left: .5em" 
+                                     action="#{control.cancelar()}"
+                                     process="@this"
+                                     update="mensajes txfCodigo txfNombre txfCreditos txfIntensidad"/>
+                </f:facet>
+            </p:card>
+        </h:form>
+                <p:dataTable id="tabla" var="a" value="#{control.asignaturas}">
+                    <p:column headerText="Código"><h:outputText value="#{a.codigo}" /></p:column>
+                    <p:column headerText="Nombre"><h:outputText value="#{a.nombre}" /></p:column>
+                    <p:column headerText="Créditos"><h:outputText value="#{a.creditos}" /></p:column>
+                    <p:column headerText="Intensidad"><h:outputText value="#{a.intensidad}" /></p:column>
                 </p:dataTable>
-            </h:form>
-        </p:card>
     </h:body>
 
 </html>

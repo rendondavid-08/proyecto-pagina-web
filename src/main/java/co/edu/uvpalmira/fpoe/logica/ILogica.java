@@ -16,5 +16,5 @@ public interface ILogica {
     public void crearAsignatura(Asignatura asignatura) throws SQLIntegrityConstraintViolationException, Exception;
     public void modificarAsignatura(Asignatura asignatura) throws NonexistentEntityException, Exception;
     public Asignatura buscarAsignatura(String codigo);
-    public List<Asignatura> buscarAsignatura();
+    public List<Asignatura> buscarAsignaturas();
 }

@@ -21,7 +21,7 @@ import java.util.List;
 @ApplicationScoped
 public class LogicaImplementacion implements ILogica {
     
-@PersistenceUnit(name = "ProjectPU")
+    @PersistenceUnit(name = "ProjectPU")
     private EntityManagerFactory emf;
     
     private AsignaturaDAO asignaturaDAO;    
@@ -50,7 +50,7 @@ public void init() {
     }
 
     @Override
-    public List<Asignatura> buscarAsignatura() {
+    public List<Asignatura> buscarAsignaturas() {
         return this.asignaturaDAO.findEntities();
     }
     
